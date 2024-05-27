@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=Stirling PDF
+GenericName=Launch StirlingPDF and open its Web Interface
+GenericName[de]=StirlingPDF starten und die Weboberfläche öffnen
+#Category=Office;
+Exec=sh -c 'docker start stirling-pdf ; notify-send -a "StirlingPDF" "A few moments..." "Stirling PDF is launching." -t 9500 ; sleep 10 ; xdg-open http://localhost:8080'
+Icon=/var/home/user/.local/share/applications/icons/stirling-pdf.svg
+Keywords=pdf;
+Type=Application
+Actions=start;stop;
+
+[Desktop Action start]
+Name=Start StirlingPDF
+Icon=media-playback-start
+Exec=sh -c 'docker start stirling-pdf ; notify-send -a "StirlingPDF" "A few moments..." "Stirling PDF is launching." -t 9500 ; sleep 10 ; xdg-open http://localhost:8080'
+
+[Desktop Action stop]
+Name=Stop StirlingPDF
+Icon=system-shutdown
+Exec=sh -c 'docker stop stirling-pdf && notify-send -a "Stirling-PDF" "Stopped."'

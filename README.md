@@ -97,7 +97,7 @@ Demo of the app is available [here](https://stirlingpdf.io). username: demo, pas
 
 ## How to use
 
-### Locally
+### Using system packages
 
 Please view https://github.com/Stirling-Tools/Stirling-PDF/blob/main/LocalRunGuide.md
 
@@ -151,7 +151,30 @@ services:
       - LANGS=en_GB
 ```
 
-Note: Podman is CLI-compatible with Docker, so simply replace "docker" with "podman".
+Note: Podman is CLI-compatible with Docker, so simply replace `docker` with `podman` on Fedora and other Distributions.
+
+## Add GUI entries for local usage
+The `.desktop` files allow to use StirlingPDF with good GUI integration, on your local system.
+
+Before using it, you need to create the container you want as mentioned above. After running the command once, the container will be created and stay on your system.
+
+```
+cd ~/.local/share/applications/
+
+# Download the icon:
+mkdir icons
+curl https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/images/stirling-pdf.svg > ./icons/stirling-pdf.svg
+
+# For use with Docker:
+curl https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/Stirling-PDF-docker.desktop > ./Stirling-PDF.desktop
+
+# For use with Podman:
+curl https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/Stirling-PDF-podman.desktop > ./Stirling-PDF.desktop
+```
+
+The entries should appear in your app drawer in a second. If not, try a reboot.
+
+![screenshot](https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/images/desktop-entry-screenshot.jpg)
 
 ## Enable OCR/Compression feature
 
